@@ -1,0 +1,29 @@
+/* Example page style
+--------------------------------------*/
+
+.container {
+    margin: 4em auto;
+    width: 60em;
+}
+
+.alert {
+    color: pink;
+    font: 70px/84px 'Comic Sans', 'Comic Sans MS';
+    text-align: center;
+
+    & + & {
+        margin-top: 1em;
+    }
+}
+
+
+
+/* Animations
+--------------------------------------*/
+
+$animations: true;
+$animations-bounceInDown: true;
+$animations-bounceIn: true;
+$animations-wobble: true;
+
+@import "../animate";
