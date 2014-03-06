@@ -1,7 +1,12 @@
-/* Defaults
+/* Dependencies
 --------------------------------------*/
 
-$base-animation-speed: 1.5s !default;
+@import "config/dependencies";
+
+
+
+/* Defaults
+--------------------------------------*/
 
 $animations: false !default;
 $animations-speeds: false !default;
@@ -78,24 +83,23 @@ $animations-rollOut: false !default;
         animation-fill-mode: both;
         animation-duration: $base-animation-speed;
     	transform: translate3d(0, 0, 0);
+
+    	@if $animations-speeds {
+            &--slower {
+            	animation-duration: $base-animation-speed * 2;
+            }
+            &--slower {
+                animation-duration: $base-animation-speed * 1.5;
+            }
+            &--fast {
+            	animation-duration: $base-animation-speed / 1.5;
+            }
+            &--faster {
+            	animation-duration: $base-animation-speed / 1;
+            }
+        }
     }
 }
-
-@if $animations-speeds {
-    .animated--slower {
-    	animation-duration: $base-animation-speed * 2;
-    }
-    .animated--slower {
-        animation-duration: $base-animation-speed * 1.5;
-    }
-    .animated--fast {
-    	animation-duration: $base-animation-speed / 1.5;
-    }
-    .animated--faster {
-    	animation-duration: $base-animation-speed / 1;
-    }
-}
-
 
 @if $animations-bounce {
     @keyframes bounce {
